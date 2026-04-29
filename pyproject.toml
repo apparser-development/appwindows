@@ -29,8 +29,8 @@ classifiers = [
 ]
 
 [project.urls]
-Repository = "https://github.com/lexter0705/appwindows"
-Issues = "https://github.com/lexter0705/appwindows/issues"
+Repository = "https://github.com/apparser-development/appwindows"
+Issues = "https://github.com/apparser-development/appwindows/issues"
 Docs = "https://apparser.gitbook.io/appwindows"
 
 [tool.mesonpy]

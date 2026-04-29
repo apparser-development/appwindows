@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/lexter0705/appwindows/refs/heads/master/appwindows.svg" alt="" width="40%" >
+<img src="https://raw.githubusercontent.com/apparser-development/appwindows/refs/heads/master/appwindows.svg" alt="" width="40%" >
 
 [![License - BSD 3-Clause](https://img.shields.io/pypi/l/appwindows.svg)](https://github.com/lexter0705/appwindows/blob/master/LICENSE.md) [![unit_tests](https://github.com/lexter0705/appwindows/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/lexter0705/appwindows/actions/workflows/unit_tests.yml)
 <br>
@@ -68,11 +68,11 @@ print(size)            # appwindows.geometry.Size(width=200, height=200)
 | Comparison Point | PyGetWindow | PyWinCtl | appwindows |
 | :--- | :---: | :---: | :---: |
 | **Cross-Platform** (macOS, Linux, Windows) | ❌ | ✅ | ✅ |
-| **Can Take Screenshots** | ❌ | ❌ | ✅ |
+| **Documentation** | ❌ | ✅ | ✅ |
 | **Actively Maintained** | ❌ | ✅ | ✅ |
+| **Can Take Screenshots** | ❌ | ❌ | ✅ |
 | **Has CI/CD Testing** | ❌ | ❌ | ✅ |
 | **Error Handling** | ❌ | ❌ | ✅ |
-| **Documentation** | ❌ | ✅ | ✅ |
 
 # Docs
 All documentation <a href="https://apparser.gitbook.io/appwindows">here</a> <br>
