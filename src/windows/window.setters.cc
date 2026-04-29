@@ -40,7 +40,6 @@ void WindowWindows::to_background() {
 
 void WindowWindows::to_foreground() {
   if (!*is_valid()) throw core::exceptions::WindowDoesNotValidException();
-  set_minimize(false);
   SetForegroundWindow(*window_);
   SetActiveWindow(*window_);
   SetWindowPos(*window_, HWND_TOP, 0, 0, 0, 0,
