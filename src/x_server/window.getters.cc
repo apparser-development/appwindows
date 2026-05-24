@@ -5,6 +5,8 @@
 #include <X11/Xutil.h>
 #include <pybind11/numpy.h>
 
+using XWindow = Window;
+
 #include <memory>
 #include <climits>
 #include <string>
@@ -34,15 +36,25 @@ std::unique_ptr<bool> WindowXServer::is_valid() const {
 }
 
 std::unique_ptr<core::QuadPoints> WindowXServer::get_points() {
-  XWindowAttributes attrs;
   if (!*is_valid()) throw core::exceptions::WindowDoesNotValidException();
   auto display = FinderXServer::open_display();
-  if (!XGetWindowAttributes(display, window_, &attrs)) return nullptr;
+  XWindowAttributes attrs;
+  if (!XGetWindowAttributes(display, window_, &attrs)) {
+    XCloseDisplay(display);
+    return nullptr;
+  }
+  XWindow root = XDefaultRootWindow(display);
+  XWindow tmp;
+  int x, y;
+  if (!XTranslateCoordinates(display, window_, root, 0, 0, &x, &y, &tmp)) {
+    XCloseDisplay(display);
+    return nullptr;
+  }
   auto points = std::make_unique<core::QuadPoints>(
-      core::Point{attrs.x, attrs.y},
-      core::Point{attrs.x + attrs.width, attrs.y},
-      core::Point{attrs.x + attrs.width, attrs.y + attrs.height},
-      core::Point{attrs.x, attrs.y + attrs.height});
+      core::Point{x, y},
+      core::Point{x + attrs.width, y},
+      core::Point{x + attrs.width, y + attrs.height},
+      core::Point{x, y + attrs.height});
   XCloseDisplay(display);
   return points;
 }
